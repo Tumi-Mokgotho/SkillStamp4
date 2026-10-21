@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Employer dashboard — post opportunities and find candidates with SkillStamps." />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#07865b" />
+  <title>Employer | SkillStamp</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="employer">
+  <header class="appbar">
+    <a class="brand" href="employer.html">
+      <span class="brand-mark" aria-hidden="true">★</span> SkillStamp
+    </a>
+    <div class="appbar-right">
+      <span class="demo-label">EMPLOYER DEMO</span>
+      <a class="avatar" href="profile.html" data-avatar aria-label="Open profile">E</a>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside class="sidebar">
+      <a class="side-link active" href="employer.html">⌂ <span>Employer home</span></a>
+      <a class="side-link" href="opportunities.html">↗ <span>All opportunities</span></a>
+      <a class="side-link" href="profile.html">○ <span>Profile</span></a>
+      <div class="sidebar-bottom">
+        <a href="index.html" class="side-link">← <span>Public website</span></a>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="welcome-row">
+        <div>
+          <span class="eyebrow">EMPLOYER DASHBOARD</span>
+          <h1>Welcome, <span id="employerWelcome">Employer</span></h1>
+          <p class="muted">
+            Post internships, learnerships and jobs. Match candidates by the
+            SkillStamps they have earned.
+          </p>
+        </div>
+      </div>
+
+      <div class="stats-grid employer-stats">
+        <article class="stat-card">
+          <span class="stat-icon" aria-hidden="true">↗</span>
+          <strong id="employerJobCount">0</strong>
+          <span>Your listings</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon" aria-hidden="true">★</span>
+          <strong id="employerMatchCount">0</strong>
+          <span>Matching candidates (demo)</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon" aria-hidden="true">▣</span>
+          <strong id="employerChallengeCount">0</strong>
+          <span>SkillStamp challenges</span>
+        </article>
+      </div>
+
+      <!-- Post opportunity -->
+      <section class="card employer-post-card">
+        <h2>Post an opportunity</h2>
+        <p class="muted">
+          Listings appear on the Opportunities page for job seekers in this demo.
+        </p>
+
+        <form id="employerJobForm" class="employer-form">
+          <div class="form-grid">
+            <div>
+              <label for="jobTitle">Role title</label>
+              <input id="jobTitle" required placeholder="e.g. Junior Data Analyst Intern" />
+            </div>
+            <div>
+              <label for="jobType">Type</label>
+              <select id="jobType" required>
+                <option value="Internship">Internship</option>
+                <option value="Learnership">Learnership</option>
+                <option value="Entry-level job">Entry-level job</option>
+              </select>
+            </div>
+            <div>
+              <label for="jobCompany">Company</label>
+              <input id="jobCompany" required placeholder="Your organisation" />
+            </div>
+            <div>
+              <label for="jobLocation">Location</label>
+              <input id="jobLocation" required placeholder="e.g. Polokwane, Limpopo" />
+            </div>
+          </div>
+
+          <label for="jobDescription">Description</label>
+          <textarea
+            id="jobDescription"
+            rows="3"
+            required
+            placeholder="What will the person do? Who is it for?"
+          ></textarea>
+
+          <label>Skills / SkillStamps that match this role</label>
+          <div class="skill-checkboxes" id="jobSkillChecks">
+            <!-- filled by JS from challenges -->
+          </div>
+
+          <button class="btn" type="submit">Publish listing</button>
+        </form>
+        <p id="employerFormStatus" class="document-status hidden" role="status"></p>
+      </section>
+
+      <!-- Your listings -->
+      <div class="content-heading">
+        <div>
+          <h2>Your listings</h2>
+          <p class="muted">Opportunities you have posted in this browser demo.</p>
+        </div>
+      </div>
+      <div id="employerJobList" class="grid two"></div>
+      <div id="employerJobEmpty" class="empty-state hidden">
+        <span class="empty-icon" aria-hidden="true">↗</span>
+        <h2>No listings yet</h2>
+        <p>Use the form above to post your first internship, learnership or job.</p>
+      </div>
+
+      <!-- Matching candidates (demo) -->
+      <div class="content-heading">
+        <div>
+          <h2>Candidates with matching SkillStamps</h2>
+          <p class="muted">
+            Demo view: people in this browser who have completed related challenges.
+          </p>
+        </div>
+      </div>
+      <div id="employerMatchList" class="grid two"></div>
+      <div id="employerMatchEmpty" class="empty-state">
+        <p class="muted">
+          When job seekers complete challenges that match your listings, they will
+          appear here in this demo.
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <nav class="mobile-nav">
+    <a class="active" href="employer.html"><span aria-hidden="true">⌂</span><small>Home</small></a>
+    <a href="opportunities.html"><span aria-hidden="true">↗</span><small>Jobs</small></a>
+    <a href="profile.html"><span aria-hidden="true">○</span><small>Profile</small></a>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
